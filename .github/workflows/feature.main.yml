@@ -24,7 +24,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
-      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install node modules
         run: |
@@ -43,7 +42,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
-      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install node modules
         run: |
@@ -62,7 +60,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
-      - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install node modules
         run: |
