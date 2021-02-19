@@ -33,7 +33,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install node modules
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
           npm install
 
@@ -59,7 +59,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install node modules
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
           npm install
 
@@ -85,7 +85,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install node modules
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
           npm install
 
@@ -112,7 +112,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install node modules
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
           npm install
 
