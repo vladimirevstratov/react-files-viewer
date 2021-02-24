@@ -28,7 +28,8 @@
     "test-all": "npm run lint && npm run format &&  npm run type-check"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "pdfjs-dist": "^2.6.347"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -63,5 +64,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "pdfjs-dist": "^2.6.347"
+  }
 }
