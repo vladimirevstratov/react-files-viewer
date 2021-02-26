@@ -15,3 +15,7 @@ declare module '*.svg' {
   export default svgUrl
   export { svgComponent as ReactComponent }
 }
+
+declare module 'pdfjs-dist/web/pdf_viewer'
+declare module 'pdfjs-dist/build/pdf.worker.entry'
+declare module 'pdfjs-dist/build/pdf'

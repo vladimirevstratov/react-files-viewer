@@ -1,19 +1,16 @@
-import React, { useRef } from 'react'
-import * as pdfjslib from 'pdfjs-dist'
+import React, { useRef, useEffect, useState } from 'react'
+import * as pdfjslib from 'pdfjs-dist/build/pdf'
+import 'pdfjs-dist/build/pdf.worker.entry'
 import { PdfViewerProps } from './types'
 
-const PdfViewer = ({
-  url,
-  pageNumber = 1
-}: // width,
-// height
-PdfViewerProps) => {
+const PdfViewer = ({ url, pageNumber = 1, getNumPages }: PdfViewerProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const [numPages, setNumPages] = useState<null | number>(null)
 
   const loadDocument = () => {
-    pdfjslib.GlobalWorkerOptions.workerSrc =
-      '//cdn.jsdelivr.net/npm/pdfjs-dist@2.6.347/build/pdf.worker.js'
     pdfjslib.getDocument(url).promise.then((pdf: any) => {
+      setNumPages(pdf.numPages)
+
       pdf.getPage(pageNumber).then((page: any) => {
         const scale = 1
         const unscaledViewport = page.getViewport({ scale })
@@ -41,10 +38,20 @@ PdfViewerProps) => {
       })
     })
   }
+
+  useEffect(() => {
+    loadDocument()
+  }, [pageNumber])
+
+  useEffect(() => {
+    if (numPages && getNumPages) {
+      getNumPages(numPages)
+    }
+  }, [numPages])
+
   return (
     <div style={{ width: '100%', height: 'auto' }}>
       <canvas ref={canvasRef} />
-      {loadDocument()}
     </div>
   )
 }

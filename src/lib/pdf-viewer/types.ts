@@ -1,6 +1,5 @@
 export interface PdfViewerProps {
   url: string
   pageNumber: number
-  width?: number
-  height?: number
+  getNumPages?: (numPages: number) => void
 }
