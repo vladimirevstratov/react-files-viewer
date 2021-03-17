@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styles from './styles.module.css'
+import styles from './styles.css'
 import PdfViewer from './lib/pdf-viewer'
+import PdfContainer from './lib/pdf-container'
 
 interface Props {
   text: string
@@ -15,3 +16,4 @@ export const ExampleComponent = ({ text }: Props) => {
 }
 
 export { PdfViewer }
+export { PdfContainer }
