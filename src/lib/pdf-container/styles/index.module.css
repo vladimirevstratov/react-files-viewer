@@ -1,0 +1,26 @@
+.zoomButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.zoomButton:focus-visible, 
+.zoomButton:focus, 
+.zoomButton:active {
+    border: none;
+    border-radius: 0;
+}
+
+.zoomBlock {
+    position: absolute;
+    display: block;
+    right: 30px;
+    top: 30px;
+    z-index: 10;
+    display: grid;
+}
+
+.zoomImage {
+    width: 30px;
+}

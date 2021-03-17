@@ -1,12 +1,15 @@
 import React from 'react'
-
-import { PdfViewer } from 'react-files-viewer'
+import { PdfContainer } from 'react-files-viewer'
 
 const App = () => {
-  return <PdfViewer 
-    url="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf"
-    pageNumber={1}
-  />
+  return (
+    <div>
+      <PdfContainer 
+        url="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf"
+        pageNumber={1}
+      />
+    </div>
+  )
 }
 
 export default App
