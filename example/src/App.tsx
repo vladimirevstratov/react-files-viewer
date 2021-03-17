@@ -1,10 +1,15 @@
 import React from 'react'
-
-import { ExampleComponent } from 'react-files-viewer'
-import 'react-files-viewer/dist/index.css'
+import { PdfContainer } from 'react-files-viewer'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <div>
+      <PdfContainer 
+        url="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf"
+        pageNumber={1}
+      />
+    </div>
+  )
 }
 
 export default App
