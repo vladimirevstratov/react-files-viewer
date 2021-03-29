@@ -16,7 +16,13 @@ import styles from './styles/index.module.css'
 let pdfPageView: any
 
 const PdfViewer = (
-  { url, pageNumber = 1, getNumPages }: PdfViewerProps,
+  {
+    url,
+    pageNumber = 1,
+    getNumPages,
+    containerStyle = {},
+    viewerStyle = {}
+  }: PdfViewerProps,
   ref: any
 ) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -183,8 +189,12 @@ const PdfViewer = (
   }))
 
   return (
-    <div className={styles.container} ref={wrapperRef}>
-      <div ref={containerRef} className={`pdfViewer ${styles.viewer}`} />
+    <div className={styles.container} ref={wrapperRef} style={containerStyle}>
+      <div
+        ref={containerRef}
+        className={`pdfViewer ${styles.viewer}`}
+        style={viewerStyle}
+      />
     </div>
   )
 }

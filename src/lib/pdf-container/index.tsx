@@ -1,41 +1,38 @@
 import React, { useRef } from 'react'
-import { PdfViewer } from '../..'
+import PdfViewer from '../pdf-viewer'
 import { PdfContainerProps } from './types'
-import zoomPlus from '../../media/zoomPlus.png'
-import zoomMinus from '../../media/zoomMinus.png'
-import fullScreen from '../../media/fullscreen.png'
+import zoomPlus from '../../media/zoomPlus.svg'
+import zoomMinus from '../../media/zoomMinus.svg'
+import fullScreen from '../../media/fullscreen.svg'
 import styles from './styles/index.module.css'
 
 const PdfContainer = ({ url, pageNumber, getNumPages }: PdfContainerProps) => {
   const ref = useRef<any | null>(null)
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.zoomBlock}>
-        <button
+        <div
+          role='button'
           className={styles.zoomButton}
           onClick={() => ref.current?.zoomReset()}
         >
           <img className={styles.zoomImage} src={fullScreen} />
-        </button>
-        <button
+        </div>
+        <div
+          role='button'
           className={styles.zoomButton}
           onClick={() => ref.current?.zoomIn()}
         >
           <img className={styles.zoomImage} src={zoomPlus} />
-        </button>
-        <button
+        </div>
+        <div
+          role='button'
           className={styles.zoomButton}
           onClick={() => ref.current?.zoomOut()}
         >
           <img className={styles.zoomImage} src={zoomMinus} />
-        </button>
-        <button
-          className={styles.zoomButton}
-          onClick={() => ref.current?.print()}
-        >
-          <img className={styles.zoomImage} src={zoomMinus} />
-        </button>
+        </div>
       </div>
       <PdfViewer
         url={url}

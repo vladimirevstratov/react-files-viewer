@@ -1,7 +1,11 @@
+import { CSSProperties } from 'react'
+
 export interface PdfViewerProps {
   url: string
   pageNumber: number
   getNumPages?: (numPages: number) => void
+  containerStyle?: CSSProperties
+  viewerStyle?: CSSProperties
 }
 
 export interface GetPdfDocumentProps {
