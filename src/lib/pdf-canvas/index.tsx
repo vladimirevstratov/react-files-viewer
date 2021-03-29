@@ -2,8 +2,15 @@ import React, { useRef, useState, useEffect } from 'react'
 import { PdfCanvasProps } from './types'
 import * as pdfjslib from 'pdfjs-dist/build/pdf'
 import 'pdfjs-dist/build/pdf.worker.entry'
+import styles from './styles/index.module.css'
 
-const PdfCanvas = ({ url, pageNumber, getNumPages }: PdfCanvasProps) => {
+const PdfCanvas = ({
+  url,
+  pageNumber,
+  getNumPages,
+  containerStyle = {},
+  canvasStyle = {}
+}: PdfCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [numPages, setNumPages] = useState<null | number>(null)
 
@@ -20,10 +27,8 @@ const PdfCanvas = ({ url, pageNumber, getNumPages }: PdfCanvasProps) => {
           const viewport = page.getViewport({
             scale: canvas.width / unscaledViewport.width
           })
-
           canvas.style.height = '100%'
           canvas.height = viewport.height
-
           const context = canvas.getContext('2d')
           const renderContext = {
             canvasContext: context,
@@ -49,8 +54,8 @@ const PdfCanvas = ({ url, pageNumber, getNumPages }: PdfCanvasProps) => {
   }, [numPages])
 
   return (
-    <div style={{ width: '100%', height: 'auto' }}>
-      <canvas ref={canvasRef} style={{ width: '100%', height: '100%' }} />
+    <div className={styles.container} style={containerStyle}>
+      <canvas ref={canvasRef} className={styles.canvas} style={canvasStyle} />
     </div>
   )
 }

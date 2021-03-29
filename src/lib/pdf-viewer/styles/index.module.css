@@ -4,6 +4,13 @@
     width: 100%;
     background: #525254;
     display: flex;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 320px;
+    min-height: 320px;
 }
 
 .viewer {

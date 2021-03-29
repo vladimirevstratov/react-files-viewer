@@ -1,21 +1,12 @@
-import React, { useState } from 'react'
-import { PdfPreview, PdfContainer } from 'react-files-viewer'
+import React from 'react'
+import { PdfContainer } from 'react-files-viewer'
 
 const App = () => {
-  const [pageNum, setPageNum] = useState(1)
-
   return (
-    <div>
-      <PdfPreview 
-        url="https://classics.berkeley.edu/sites/default/files/2020-01/sample.pdf"
-        pageNumber={pageNum} 
-        onChange={(num) => {
-          console.log(`num`, num)
-          setPageNum(num)}}
-      />
+    <div style={{height: "100vh", width: "100%"}}>
       <PdfContainer
         url="https://classics.berkeley.edu/sites/default/files/2020-01/sample.pdf"
-        pageNumber={pageNum} 
+        pageNumber={1} 
       />
     </div>
   )

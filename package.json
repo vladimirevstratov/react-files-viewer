@@ -1,19 +1,25 @@
 {
   "name": "react-files-viewer",
   "version": "1.0.0",
-  "description": "Viewer for differents files (pdf, other)",
+  "description": "Viewer for different files (pdf, other)",
+  "keywords": [
+    "pdf",
+    "react",
+    "files-viewer"
+  ],
   "author": "vladimirevstratov",
   "license": "MIT",
   "repository": "vladimirevstratov/react-files-viewer",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es5.js",
+  "typings": "dist/types/index.d.ts",
   "source": "src/index.tsx",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "rollup -c",
-    "start": "rollup -c -w",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "start": "rollup -c rollup.config.ts -w",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -67,12 +73,15 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-dev-server": "^0.4.3",
+    "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-smart-asset": "^2.1.1",
+    "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-url": "^3.0.1",
+    "typedoc": "^0.20.34",
     "typescript": "^3.7.5"
   },
   "files": [
