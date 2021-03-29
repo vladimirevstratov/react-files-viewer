@@ -35,7 +35,7 @@ jobs:
       - name: Install node modules
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm install --ignore-scripts
 
       - name: Fix lint
         run: |
@@ -61,7 +61,7 @@ jobs:
       - name: Install node modules
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm install --ignore-scripts
 
       - name: Fix prettier
         run: |
@@ -87,7 +87,7 @@ jobs:
       - name: Install node modules
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: |
-          npm install
+          npm install --ignore-scripts
 
       - name: Fix types check
         run: |
