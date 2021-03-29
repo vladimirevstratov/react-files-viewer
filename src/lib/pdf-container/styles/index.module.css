@@ -24,3 +24,7 @@
 .zoomImage {
     width: 30px;
 }
+
+.container {
+    position: relative;
+}

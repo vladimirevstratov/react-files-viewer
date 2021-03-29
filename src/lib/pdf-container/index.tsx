@@ -1,16 +1,16 @@
 import React, { useRef } from 'react'
 import { PdfViewer } from '../..'
 import { PdfContainerProps } from './types'
-import zoomPlus from '../../media/zoomPlus.png'
-import zoomMinus from '../../media/zoomMinus.png'
-import fullScreen from '../../media/fullscreen.png'
+import zoomPlus from '../../media/zoomPlus.svg'
+import zoomMinus from '../../media/zoomMinus.svg'
+import fullScreen from '../../media/fullscreen.svg'
 import styles from './styles/index.module.css'
 
 const PdfContainer = ({ url, pageNumber, getNumPages }: PdfContainerProps) => {
   const ref = useRef<any | null>(null)
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.zoomBlock}>
         <button
           className={styles.zoomButton}
@@ -27,12 +27,6 @@ const PdfContainer = ({ url, pageNumber, getNumPages }: PdfContainerProps) => {
         <button
           className={styles.zoomButton}
           onClick={() => ref.current?.zoomOut()}
-        >
-          <img className={styles.zoomImage} src={zoomMinus} />
-        </button>
-        <button
-          className={styles.zoomButton}
-          onClick={() => ref.current?.print()}
         >
           <img className={styles.zoomImage} src={zoomMinus} />
         </button>
