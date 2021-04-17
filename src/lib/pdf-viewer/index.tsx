@@ -12,6 +12,8 @@ import * as pdfjsViewer from 'pdfjs-dist/web/pdf_viewer'
 import 'pdfjs-dist/web/pdf_viewer'
 import 'pdfjs-dist/web/pdf_viewer.css'
 import styles from './styles/index.module.css'
+import print from 'print-js'
+
 
 let pdfPageView: any
 
@@ -171,19 +173,7 @@ const PdfViewer = (
     },
     print: () => {
       if (pdfUrl) {
-        const printFrame = document.createElement('iframe')
-        document.body.appendChild(printFrame)
-        printFrame.style.display = 'none'
-        printFrame.src = pdfUrl
-        const loadPrint = () => {
-          setTimeout(() => {
-            printFrame.focus()
-            if (printFrame.contentWindow) {
-              printFrame.contentWindow.print()
-            }
-          }, 1000)
-        }
-        printFrame.addEventListener('load', loadPrint)
+        print({printable: url, type:'pdf', showModal:false})
       }
     }
   }))
