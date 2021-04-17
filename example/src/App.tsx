@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div style={{height: "100vh", width: "100%"}}>
       <PdfContainer
-        url="https://classics.berkeley.edu/sites/default/files/2020-01/sample.pdf"
+        url="https://file-examples-com.github.io/uploads/2017/10/file-sample_150kB.pdf"
         pageNumber={1} 
       />
     </div>
